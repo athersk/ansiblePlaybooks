@@ -1,0 +1,17 @@
+---
+ - name: test forks
+   hosts: all 
+   serial: 2
+
+   tasks:
+           - name: install package
+             yum:
+                     name: httpd
+                     state: latest
+           - name: start enable service
+             service:
+                     name: httpd
+                     state: started
+                     enabled: yes
+
+

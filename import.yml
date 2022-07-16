@@ -1,0 +1,10 @@
+---
+ - name: test importing task file
+   hosts: all
+   tasks:
+           - name: install mariadb
+             yum:
+                     name: mariadb
+                     state: latest
+           - name: import task file
+             include_tasks: task.yml

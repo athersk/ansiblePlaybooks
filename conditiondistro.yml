@@ -1,0 +1,15 @@
+---
+ - name: test conditions
+   hosts: all 
+   vars:
+           dest:
+                - RedHat
+                - CentOs
+                - fedora
+            
+   tasks:
+           - name: install package on specified distros only
+             yum:
+                 name: httpd
+                 state: latest
+             when: ansible_distribution in dest

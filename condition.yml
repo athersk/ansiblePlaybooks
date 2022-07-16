@@ -1,0 +1,9 @@
+---
+ - name: test conditions
+   hosts: all 
+   tasks:
+           - name: install package when architecture is 64bit
+             yum:
+                 name: mariadb
+                 state: latest
+             when: ansible_architecture == "x86_64"

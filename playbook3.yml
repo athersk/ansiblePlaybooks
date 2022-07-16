@@ -1,0 +1,13 @@
+--- 
+ - name: importing playbooks in a playbook
+   hosts: all
+   tasks:
+           - name: create user rahul
+             user: 
+                 name: rahul
+                 uid: 6768
+ - name: import playbook1
+   import_playbook: playbook1.yml
+ - name: import playbook2
+   import_playbook: playbook2.yml
+

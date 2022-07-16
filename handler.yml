@@ -1,0 +1,21 @@
+---
+ - name: test handlers
+   hosts: all
+   tasks:
+           - name: install package
+             yum:
+                     name: httpd
+                     state: latest
+             notify: start httpd
+           - name: create user
+             user:
+                     name: tom
+                     state: present
+   handlers:
+          - name: start httpd
+            service:
+                    name: httpd
+                    state: started
+                    enabled: yes
+
+

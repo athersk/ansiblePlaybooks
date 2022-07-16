@@ -1,0 +1,8 @@
+---
+ - name: test sync
+   hosts: all
+   tasks:
+       - name: sync my host
+         synchronize:
+                  src: myhost
+                  dest: /home/raju/myhost 

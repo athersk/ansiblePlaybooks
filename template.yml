@@ -1,0 +1,8 @@
+---
+ - name: test for loop in template
+   hosts: all
+   tasks:
+           - name: deploy template
+             template:
+                     src: foruser.j2
+                     dest: /tmp/values

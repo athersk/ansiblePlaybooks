@@ -1,0 +1,19 @@
+---
+# tasks file for apache
+ - name: install {{ pkg }} package
+   yum:
+           name: '{{ pkg }}'
+           state: latest
+   notify: start service
+ - name: create user {{ user }}
+   user:
+           name: '{{ user }}'
+           state: present
+ - name: deploy template
+   template:
+           src: index.j2
+           dest: /var/www/html/index.html 
+ - name: copy file
+   copy:
+           src: data
+           dest: /var/www/database
